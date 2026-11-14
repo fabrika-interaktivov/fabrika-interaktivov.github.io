@@ -292,10 +292,11 @@ video::-webkit-media-controls{display:none!important}
   var hv=document.getElementById('heroVid'), box=document.getElementById('heroCards');
   var shown=0, loopN=0, lastT=null, flip=false, fading=false;
   function clear(){box.innerHTML='';shown=0;fading=false;}
-  function play(v){v.muted=true;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});}
+  var blocked=false;
+  function play(v){v.muted=true;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(e){if(e&&e.name==='NotAllowedError')blocked=true;});}
   var heroEl=hv, imgMode=false;
   function tick(t){
-    if(lastT!=null && t<lastT-1){loopN++;flip=loopN%2===1;heroEl.style.transform=flip?'scaleX(-1)':'none';clear();lastT=t;return;}
+    if(lastT!=null && t<lastT-1){loopN++;flip=!imgMode&&loopN%2===1;heroEl.style.transform=flip?'scaleX(-1)':'none';clear();lastT=t;return;}
     lastT=t;
     if(t>=11.2 && shown && !fading){fading=true;[].forEach.call(box.children,function(c){c.style.opacity=0;});return;}
     if(shown<AUTO.length && t>=AUTO[shown][0] && t<11.2){
@@ -316,7 +317,7 @@ video::-webkit-media-controls{display:none!important}
       box.appendChild(d);shown++;
     }
   }
-  hv.addEventListener('timeupdate',function(){tick(hv.currentTime);});
+  hv.addEventListener('timeupdate',function(){if(!imgMode)tick(hv.currentTime);});
   play(hv);
 
   // ---------- ленивые видео: грузим и играем только на экране ----------
@@ -331,6 +332,7 @@ video::-webkit-media-controls{display:none!important}
   // ---------- страховка автозапуска: телефоны в режиме энергосбережения и встроенные браузеры (Instagram, Telegram) ----------
   function onScreen(v){var r=v.getBoundingClientRect();return r.bottom>-200&&r.top<innerHeight+200&&r.width>0;}
   function kick(){
+    if(imgMode)return;
     if(hv.paused)play(hv);
     [].forEach.call(document.querySelectorAll('video'),function(v){
       if(v===hv)return;
@@ -354,14 +356,16 @@ video::-webkit-media-controls{display:none!important}
   }
   function goImgMode(){
     if(imgMode)return; imgMode=true;
-    var hi=toImg(hv); if(hi){heroEl=hi;hi.style.position='absolute';hi.style.inset='0';hi.style.width='100%';hi.style.height='100%';}
-    box.innerHTML='';shown=0;fading=false;loopN=0;lastT=null;
-    var t0=performance.now(), D=12.04;
-    setInterval(function(){tick(((performance.now()-t0)/1000)%D);},200);
+    var hi=toImg(hv); hv.removeAttribute('src'); try{hv.load();}catch(e){}
+    box.innerHTML='';shown=0;fading=false;loopN=0;lastT=null;flip=false;
+    var D=12.04, t0=null;
+    function startClock(){ if(t0==null){t0=performance.now(); setInterval(function(){tick(((performance.now()-t0)/1000)%D);},200);} }
+    if(hi){heroEl=hi;hi.style.position='absolute';hi.style.inset='0';hi.style.width='100%';hi.style.height='100%';hi.style.transform='none';
+      if(hi.complete)startClock(); else {hi.addEventListener('load',startClock); setTimeout(startClock,4000);} }
     [].forEach.call(document.querySelectorAll('video'),toImg);
   }
   if(isSafari||/[?&]imgtest/.test(location.search)){
-    setTimeout(function(){ if(/[?&]imgtest/.test(location.search)||hv.paused||hv.currentTime<0.1) goImgMode(); },1800);
+    setTimeout(function(){ if(/[?&]imgtest/.test(location.search)||(blocked&&hv.paused)) goImgMode(); },2500);
   }
 
   // ---------- что входит / шаги ----------
