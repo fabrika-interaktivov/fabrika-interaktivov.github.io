@@ -293,6 +293,7 @@ video::-webkit-media-controls{display:none!important}
   var shown=0, loopN=0, lastT=null, flip=false, fading=false;
   function clear(){box.innerHTML='';shown=0;fading=false;}
   var blocked=false;
+  var IOS=/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   function play(v){v.muted=true;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(e){if(e&&e.name==='NotAllowedError')blocked=true;});}
   var heroEl=hv, imgMode=false;
   function tick(t){
@@ -313,14 +314,19 @@ video::-webkit-media-controls{display:none!important}
       d.className='fx-pol fx-card-hero';
       d.style.left=x+'%';d.style.top=y+'%';d.style.setProperty('--r',r+'deg');
       var v=document.createElement('video');v.src=m[0];v.poster=m[1];v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');
-      if(imgMode){var im=document.createElement('img');im.src=m[0];im.className='fx-vimg';im.alt='';d.appendChild(im);}else{d.appendChild(v);play(v);}
+      v.setAttribute('muted','');v.setAttribute('autoplay','');v.autoplay=true;
+      if(imgMode||IOS){var im=document.createElement('img');im.src=m[0];im.className='fx-vimg';im.alt='';d.appendChild(im);}else{d.appendChild(v);play(v);}
       box.appendChild(d);shown++;
+      // не даём карточке вылезать за край экрана
+      var hw=d.offsetWidth/2+8, hh=d.offsetHeight/2+8, W=box.parentNode.clientWidth, H=box.parentNode.clientHeight;
+      if(W&&H){var px2=Math.min(W-hw,Math.max(hw,x/100*W)), py2=Math.min(H*0.78,Math.max(hh,y/100*H));d.style.left=px2+'px';d.style.top=py2+'px';}
     }
   }
   hv.addEventListener('timeupdate',function(){if(!imgMode)tick(hv.currentTime);});
   play(hv);
 
   // ---------- ленивые видео: грузим и играем только на экране ----------
+  if(IOS){[].forEach.call(document.querySelectorAll('video.js-lazy'),function(v){var im=document.createElement('img');im.src=v.dataset.src;im.alt='';im.className='fx-vimg';im.setAttribute('style',v.getAttribute('style')||'');im.loading='lazy';v.replaceWith(im);});}
   var lazy=document.querySelectorAll('video.js-lazy');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
