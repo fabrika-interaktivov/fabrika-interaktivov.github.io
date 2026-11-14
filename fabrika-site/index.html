@@ -27,6 +27,7 @@ a{color:#F6E7B8}a:hover{color:#ffffff}
 .fx-ghost{position:absolute;z-index:1;left:-2%;font-family:'TTNormsBlack','Montserrat',sans-serif;font-weight:400;text-transform:uppercase;line-height:.8;white-space:nowrap;font-size:clamp(90px,15vw,240px);pointer-events:none;user-select:none}
 .fx-pearl{position:absolute;z-index:6;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.45))}
 .fx-pol{position:relative;background:#FBF8F2;padding:10px 10px 34px;box-shadow:0 22px 44px rgba(0,0,0,.5);box-sizing:border-box}
+.fx-pol img.fx-vimg{display:block;width:100%;height:100%;object-fit:cover}
 .fx-pol video,.fx-pol img.fx-ph{display:block;width:100%;max-width:100%;height:100%;object-fit:cover;background:#2a1a1b}
 .fx-clip{position:absolute;z-index:3;left:50%;top:-46px;width:64px;transform:translateX(-50%);pointer-events:none}
 .fx-tape{position:absolute;z-index:3;width:84px;pointer-events:none}
@@ -55,9 +56,10 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
 .fx-card{position:relative;background:#FFFFFF;color:#141414;padding:34px 26px 26px;display:flex;flex-direction:column;box-shadow:0 16px 36px rgba(20,20,20,.14);border:1px solid #E2D7C8;font-family:'Montserrat',sans-serif}
 .fx-card-hit{border:2px solid #BE0201}
 .fx-plus3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;width:100%;margin-top:clamp(24px,4vw,48px)}
-.fx-plus3>div{background:#F6E7B8;padding:28px 26px;text-align:left;display:flex;flex-direction:column;gap:12px;box-shadow:0 18px 36px rgba(0,0,0,.25)}
-.fx-plus3 b{font-family:'TTNormsBlack','Montserrat',sans-serif;font-weight:400;font-size:clamp(24px,2.2vw,34px);line-height:1;text-transform:uppercase;white-space:nowrap;color:#BE0201}
-.fx-plus3 span{color:#141414;font-size:clamp(17px,1.3vw,19px)}
+.fx-plus3>div{background:rgba(246,231,184,.07);border:1px solid rgba(246,231,184,.32);padding:28px 26px;text-align:left;display:flex;flex-direction:column;gap:12px}
+.fx-plus3 b{font-family:'TTNormsBlack','Montserrat',sans-serif;font-weight:400;font-size:clamp(24px,2.2vw,34px);line-height:1;text-transform:uppercase;white-space:nowrap;color:#F6E7B8}
+.fx-plus3 span{color:#EBDDD0;font-size:clamp(17px,1.3vw,19px)}
+.fx-plus3 a{color:#F6E7B8;font-size:15px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
 video::-webkit-media-controls{display:none!important}
 .fx-cookie{position:fixed;z-index:50;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;background:#141414;color:#F6E7B8;border:1px solid #3a2a2c;padding:16px 18px;font:14px/1.5 'Montserrat',sans-serif;display:none;gap:14px;align-items:center;box-shadow:0 12px 30px rgba(0,0,0,.4)}
@@ -99,7 +101,7 @@ video::-webkit-media-controls{display:none!important}
     <p class="fx-body" style="margin:0;max-width:640px;font-size:clamp(18px,1.7vw,22px);color:#141414">Создадим для вас персональный фотоинтерактив, который станет звездой вечера.</p>
     <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center">
       <a class="fx-btn fx-btn-red js-book" href="https://t.me/davalovslides?direct" target="_blank" rel="noopener" style="min-height:60px;font-size:clamp(16px,1.6vw,22px);font-family:Montserrat,sans-serif">Забронировать дату</a>
-      <a class="fx-btn fx-btn-dark" href="#ideas" style="min-height:60px;font-family:Montserrat,sans-serif;font-size:clamp(16px,1.6vw,22px)">Как это выглядит</a>
+      <a class="fx-btn fx-btn-dark" href="#ideas" style="min-height:60px;font-family:Montserrat,sans-serif;font-size:clamp(16px,1.6vw,22px)">Как это применить</a>
     </div>
     <p class="fx-body" style="margin:4px 0 0;font-size:clamp(14px,1.5vw,20px);font-weight:500;color:#141414">Работаем до 31 декабря&nbsp;&nbsp;·&nbsp; −30% до 30 ноября&nbsp;&nbsp;·&nbsp; ноябрь: осталось 12 из 15 мест&nbsp;&nbsp;·&nbsp; декабрь: 20 мест</p>
   </div>
@@ -115,7 +117,7 @@ video::-webkit-media-controls{display:none!important}
       <p class="fx-body" style="margin:0 auto;max-width:860px;color:#FFFFFF;font-size:clamp(22px,2.3vw,32px);line-height:1.35;font-weight:600">Мы не продаём «оживление фото». Мы делаем из фото гостей интерактив для вашей программы.</p>
       <p class="fx-body" style="margin:0 auto;max-width:760px;color:#F6E7B8;font-size:clamp(18px,1.55vw,22px)">Вы продумываете сценарий всего вечера, а мы готовим интерактив, который остаётся просто включить и разорвать зал. Вам не нужно часами сидеть в программах для оживления и собирать всё на монтаже.</p>
       <div class="fx-plus3 fx-body">
-        <div><b>+ к чеку</b><span>Зарабатываете на интерактиве сверх гонорара</span></div>
+        <div><b>+ к чеку</b><span>Зарабатываете на интерактиве сверх гонорара</span><a href="#earn">Как на этом заработать — ниже ↓</a></div>
         <div><b>+ к программе</b><span>Интерактив, которого нет ни у одного другого ведущего</span></div>
         <div><b>+ к имени</b><span>Всё под вашим брендом, нас нигде не видно</span></div>
       </div>
@@ -153,7 +155,7 @@ video::-webkit-media-controls{display:none!important}
         <p class="fx-body">Собираем старые новогодние фото гостей и делаем из них альбом, слайд-шоу или интерактив. И весь зал вспоминает, как отмечали все предыдущие годы.</p>
       </article>
       <article>
-        <div class="fx-pol" style="transform:rotate(1.5deg);aspect-ratio:4/5"><img class="fx-clip" src="m/dc024d03d25dc78238a003ed6a3eb0e0.png" alt=""><video class="js-lazy" preload="none" data-src="m/81840459567b18c1758ad3cad748c053.mp4" poster="m/0262e9e4df6825ad4524dc8a35a4fa0e.jpg" muted loop playsinline></video></div>
+        <div class="fx-pol" style="transform:rotate(1.5deg);aspect-ratio:4/5"><img class="fx-clip" src="m/dc024d03d25dc78238a003ed6a3eb0e0.png" alt=""><video class="js-lazy" preload="none" data-src="m/greet-hq.mp4" poster="m/greet-hq.jpg" muted loop playsinline></video></div>
         <h3 class="fx-over">Поздравления от тех, кто не смог приехать</h3>
         <p class="fx-body">Брат из другого города, коллеги из филиала, старый друг из-за границы — все появляются на экране в начале ролика.</p>
       </article>
@@ -192,16 +194,16 @@ video::-webkit-media-controls{display:none!important}
 </section>
 
 <!-- 6. ЗАРАБОТОК -->
-<section class="fx-sec" style="background:#5A0D14;padding:clamp(80px,10vw,120px) 0">
+<section id="earn" class="fx-sec" style="background:#5A0D14;padding:clamp(80px,10vw,120px) 0">
   <div class="fx-ghost" aria-hidden="true" style="top:20px;color:rgba(0,0,0,.16)">+5 200 ₽</div>
   <div class="fx-wrap">
     <h2 class="fx-h2" style="max-width:760px">Интерактив зарабатывает вам сверх гонорара</h2>
     <p class="fx-body" style="margin:22px 0 0;max-width:760px;color:#FFFFFF;font-size:clamp(18px,1.5vw,21px)">Включая этот интерактив в свою программу, вы зарабатываете сверх гонорара. Цену для клиента выставляете сами — мы специально сделали цены приятными, чтобы у вас была возможность взять свою комиссию.</p>
-    <div class="fx-over" style="margin-top:44px;color:#F6E7B8">Например, пакет «Семья · 30 фото»:</div>
+    <div class="fx-over" style="margin-top:44px;color:#F6E7B8">Например, пакет «30 фото» в ноябре:</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:18px">
-      <div style="border:1.5px solid rgba(245,239,230,.45);padding:26px"><div class="fx-over" style="color:#F6E7B8">Вы называете клиенту</div><div style="font-family:'TTNormsBlack','Montserrat',sans-serif;font-size:clamp(40px,4.2vw,60px);margin-top:10px">15 600 ₽</div></div>
-      <div style="border:1.5px solid rgba(245,239,230,.45);padding:26px"><div class="fx-over" style="color:#F6E7B8">Вы платите нам за пакет</div><div style="font-family:'TTNormsBlack','Montserrat',sans-serif;font-size:clamp(40px,4.2vw,60px);margin-top:10px">10 400 ₽</div></div>
-      <div style="background:#FBF8F2;color:#BE0201;padding:26px"><div class="fx-over">Ваша комиссия</div><div style="font-family:'TTNormsBlack','Montserrat',sans-serif;font-size:clamp(40px,4.2vw,60px);margin-top:10px">5 200 ₽</div></div>
+      <div style="border:1.5px solid rgba(245,239,230,.45);padding:26px"><div class="fx-over" style="color:#F6E7B8">Вы называете клиенту</div><div style="font-family:'TTNormsBlack','Montserrat',sans-serif;font-size:clamp(32px,3.6vw,56px);margin-top:10px;white-space:nowrap">15 600 ₽</div></div>
+      <div style="border:1.5px solid rgba(245,239,230,.45);padding:26px"><div class="fx-over" style="color:#F6E7B8">Вы платите нам за пакет</div><div style="font-family:'TTNormsBlack','Montserrat',sans-serif;font-size:clamp(32px,3.6vw,56px);margin-top:10px;white-space:nowrap">10 400 ₽</div></div>
+      <div style="background:#FBF8F2;color:#BE0201;padding:26px"><div class="fx-over">Ваша комиссия</div><div style="font-family:'TTNormsBlack','Montserrat',sans-serif;font-size:clamp(32px,3.6vw,56px);margin-top:10px;white-space:nowrap">5 200 ₽</div></div>
     </div>
     <ul class="fx-body" style="margin:34px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:#F6E7B8">
       <li>Ваша часть работы — попросить у заказчика файлы и провести интерактив.</li>
@@ -223,19 +225,14 @@ video::-webkit-media-controls{display:none!important}
 <div class="fx-woven" aria-hidden="true"></div>
 
 <!-- 8. ЦЕНЫ -->
-<section id="prices" class="fx-sec" style="background:#F6E7B8;color:#141414;padding:clamp(80px,10vw,130px) 0">
+<section id="prices" class="fx-sec" style="background:#F4F0E8 url(m/cotton.jpg) center/cover;color:#141414;padding:clamp(80px,10vw,130px) 0">
   <img src="m/9285decbda996ca976bbab48cfeb9a6b.png" alt="" aria-hidden="true" class="fx-hide-m" style="position:absolute;right:0;top:0;height:100%;width:auto;opacity:.9;z-index:1;pointer-events:none">
   <div class="fx-wrap">
     <h2 class="fx-h2" style="color:#141414">Одна цена — всё включено</h2>
     <p class="fx-body" style="margin:18px 0 0;max-width:700px;color:#3A3030">Оживление всех фото, слайд-шоу, электронный альбом, видеопоздравления и персонализированная открытка — в каждом пакете.</p>
-    <div style="margin-top:26px;display:inline-block;background:#BE0201;color:#fff;padding:14px 20px;font-size:14px;line-height:1.55;max-width:760px"><b style="text-transform:uppercase;letter-spacing:1.5px">В ноябре цена −30%.</b> Дату на декабрь можно забронировать по этой цене, если оплатить до 30 ноября.</div>
-    <div role="tablist" style="display:flex;gap:10px;margin-top:44px;flex-wrap:wrap">
-      <button type="button" role="tab" data-tab="family" class="fx-tab fx-tab-on">Семья</button>
-      <button type="button" role="tab" data-tab="corp" class="fx-tab">Корпоратив</button>
-    </div>
-    <div id="packs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:24px;margin-top:30px;max-width:1040px"></div>
-    <p id="corpNote" class="fx-body" style="margin:24px 0 0;max-width:760px;display:none">В корпоративном пакете ещё: игры «Угадай коллегу» и «Чьи это глаза?», логотип компании в альбоме, персонализированные открытки на столы.</p>
-    <p class="fx-body" style="position:relative;z-index:3;display:inline-block;margin:24px 0 0;padding:10px 16px;background:#F6E7B8;box-shadow:0 0 0 1px #E2D7C8;font-size:15px;font-weight:600;color:#3A3030">Срочно, меньше 3 дней до мероприятия — цена ×2 · Ноябрь: осталось 12 из 15 мест · Декабрь: 20 мест</p>
+    <div style="margin-top:26px;display:inline-block;background:#BE0201;color:#fff;padding:14px 20px;font-size:14px;line-height:1.55;max-width:760px"><b style="text-transform:uppercase;letter-spacing:1.5px">В ноябре цена −30%.</b> Дату на декабрь можно забронировать по ноябрьской цене, если оплатить до 30 ноября.</div>
+    <div id="packs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr));gap:24px;margin-top:44px;max-width:1040px"></div>
+    <p class="fx-body" style="position:relative;z-index:3;display:inline-block;margin:24px 0 0;padding:10px 16px;background:#FBF8F2;box-shadow:0 0 0 1px #E2D7C8;font-size:15px;font-weight:600;color:#3A3030">Если до мероприятия меньше 3 дней — сделаем, но по цене ×2 · Ноябрь: осталось 12 из 15 мест · Декабрь: 20 мест</p>
   </div>
 </section>
 
@@ -296,18 +293,18 @@ video::-webkit-media-controls{display:none!important}
   var shown=0, loopN=0, lastT=null, flip=false, fading=false;
   function clear(){box.innerHTML='';shown=0;fading=false;}
   function play(v){v.muted=true;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(){});}
-  hv.addEventListener('timeupdate',function(){
-    var t=hv.currentTime;
-    if(lastT!=null && t<lastT-1){loopN++;flip=loopN%2===1;hv.style.transform=flip?'scaleX(-1)':'none';clear();lastT=t;return;}
+  var heroEl=hv, imgMode=false;
+  function tick(t){
+    if(lastT!=null && t<lastT-1){loopN++;flip=loopN%2===1;heroEl.style.transform=flip?'scaleX(-1)':'none';clear();lastT=t;return;}
     lastT=t;
     if(t>=11.2 && shown && !fading){fading=true;[].forEach.call(box.children,function(c){c.style.opacity=0;});return;}
     if(shown<AUTO.length && t>=AUTO[shown][0] && t<11.2){
       var a=AUTO[shown], m=MEDIA[(loopN*AUTO.length+shown)%MEDIA.length];
       var x=flip?100-a[1]:a[1], r=flip?-a[3]:a[3], y=a[2];
       // пересчёт из координат кадра в координаты экрана (на телефоне видео обрезано по бокам)
-      var vw=hv.videoWidth, vh=hv.videoHeight, cw=hv.clientWidth, ch=hv.clientHeight;
+      var vw=heroEl.videoWidth||heroEl.naturalWidth, vh=heroEl.videoHeight||heroEl.naturalHeight, cw=heroEl.clientWidth, ch=heroEl.clientHeight;
       if(vw&&vh&&cw&&ch){var sc=Math.max(cw/vw,ch/vh), dw=vw*sc, dh=vh*sc;
-        var op=getComputedStyle(hv).objectPosition.split(' '), px=parseFloat(op[0])/100, py=parseFloat(op[1])/100;
+        var op=getComputedStyle(heroEl).objectPosition.split(' '), px=parseFloat(op[0])/100, py=parseFloat(op[1])/100;
         var ox=(dw-cw)*px, oy=(dh-ch)*py;
         x=(x/100*dw-ox)/cw*100; y=(y/100*dh-oy)/ch*100;
         x=Math.min(91,Math.max(9,x)); y=Math.min(80,Math.max(10,y));}
@@ -315,9 +312,11 @@ video::-webkit-media-controls{display:none!important}
       d.className='fx-pol fx-card-hero';
       d.style.left=x+'%';d.style.top=y+'%';d.style.setProperty('--r',r+'deg');
       var v=document.createElement('video');v.src=m[0];v.poster=m[1];v.muted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');
-      d.appendChild(v);box.appendChild(d);play(v);shown++;
+      if(imgMode){var im=document.createElement('img');im.src=m[0];im.className='fx-vimg';im.alt='';d.appendChild(im);}else{d.appendChild(v);play(v);}
+      box.appendChild(d);shown++;
     }
-  });
+  }
+  hv.addEventListener('timeupdate',function(){tick(hv.currentTime);});
   play(hv);
 
   // ---------- ленивые видео: грузим и играем только на экране ----------
@@ -345,6 +344,26 @@ video::-webkit-media-controls{display:none!important}
   hv.addEventListener('canplay',function(){if(hv.paused)play(hv);});
   setInterval(kick,1500);
 
+  // ---------- Safari в режиме энергосбережения не запускает <video> сам: показываем те же mp4 через <img>, Safari их проигрывает без нажатия ----------
+  var UA=navigator.userAgent;
+  var isSafari=/iPad|iPhone|iPod/.test(UA)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||(/Safari/.test(UA)&&!/Chrome|CriOS|FxiOS|Android|Edg/.test(UA));
+  function toImg(v){
+    var src=v.getAttribute('src')||v.dataset.src; if(!src)return null;
+    var im=document.createElement('img'); im.src=src; im.alt=''; im.className=(v.className||'').replace('js-lazy','')+' fx-vimg';
+    im.setAttribute('style',v.getAttribute('style')||''); v.pause&&v.pause(); v.replaceWith(im); return im;
+  }
+  function goImgMode(){
+    if(imgMode)return; imgMode=true;
+    var hi=toImg(hv); if(hi){heroEl=hi;hi.style.position='absolute';hi.style.inset='0';hi.style.width='100%';hi.style.height='100%';}
+    box.innerHTML='';shown=0;fading=false;loopN=0;lastT=null;
+    var t0=performance.now(), D=12.04;
+    setInterval(function(){tick(((performance.now()-t0)/1000)%D);},200);
+    [].forEach.call(document.querySelectorAll('video'),toImg);
+  }
+  if(isSafari||/[?&]imgtest/.test(location.search)){
+    setTimeout(function(){ if(/[?&]imgtest/.test(location.search)||hv.paused||hv.currentTime<0.1) goImgMode(); },1800);
+  }
+
   // ---------- что входит / шаги ----------
   var INC=[
     ['01','Оживление всех фото','Каждый снимок в пакете оживает. Старые и повреждённые сначала восстанавливаем. Чёрно-белые раскрасим, если скажете.'],
@@ -364,20 +383,16 @@ video::-webkit-media-controls{display:none!important}
   document.getElementById('steps').innerHTML=ST.map(function(s){return '<li style="background:#1E1919;border-top:3px solid #BE0201;padding:24px 22px 26px;display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:14px"><span style="font-family:\'TTNormsBlack\',sans-serif;font-size:40px;color:#BE0201;line-height:1">'+s[0]+'</span><span class="fx-over" style="font-size:16px;color:#FFFFFF;line-height:1.25">'+s[1]+'</span></div><div class="fx-body" style="color:#D9CCAA;font-size:clamp(16px,1.2vw,18px)">'+s[2]+'</div></li>';}).join('');
 
   // ---------- цены ----------
-  function fmt(n){return n.toLocaleString('ru-RU').replace(/\s/g,' ');}
-  function mk(name,old,price,hit){return {name:name,old:fmt(old),price:fmt(price),client:fmt(Math.round(price*1.5/100)*100),earn:fmt(Math.round(price*0.5/100)*100),hit:hit};}
-  var P={family:[mk('15 фото',9900,6900,false),mk('30 фото',14900,10400,true),mk('60 фото',24900,17400,false)],
-         corp:[mk('до 15 человек',12900,9000,false),mk('до 30 человек',18900,13200,true),mk('до 50 человек',27900,19500,false)]};
-  function renderPacks(tab){
-    document.getElementById('packs').innerHTML=P[tab].map(function(p){return '<div class="fx-card'+(p.hit?' fx-card-hit':'')+'">'+(p.hit?'<div class="fx-over" style="position:absolute;top:-13px;left:24px;background:#BE0201;color:#fff;padding:5px 12px;font-size:11px">хит</div>':'')+
-      '<div class="fx-over" style="font-size:18px;color:#141414">'+p.name+'</div><div style="display:flex;align-items:baseline;gap:12px;margin-top:18px;flex-wrap:wrap"><span style="font-family:\'TTNormsBlack\',\'Montserrat\',sans-serif;font-size:46px;color:#BE0201">'+p.price+' ₽</span><span style="text-decoration:line-through;color:#7A6A6C;font-size:17px">'+p.old+' ₽</span></div>'+
-      '<div style="margin-top:18px;border-top:1px solid #E2D7C8;padding-top:14px;display:flex;flex-direction:column;gap:8px;font-size:14px"><div style="display:flex;justify-content:space-between;gap:10px"><span>Цена для клиента</span><b>~'+p.client+' ₽</b></div><div style="display:flex;justify-content:space-between;gap:10px;color:#BE0201"><span>Вы заработаете</span><b>~'+p.earn+' ₽</b></div></div>'+
-      '<a class="fx-btn fx-btn-red js-book" href="https://t.me/davalovslides?direct" target="_blank" rel="noopener" style="margin-top:24px;width:100%">Забронировать дату</a></div>';}).join('');
-    document.getElementById('corpNote').style.display=tab==='corp'?'block':'none';
-    document.querySelectorAll('[data-tab]').forEach(function(b){b.className='fx-tab'+(b.dataset.tab===tab?' fx-tab-on':'');b.setAttribute('aria-selected',b.dataset.tab===tab);});
-  }
-  document.querySelectorAll('[data-tab]').forEach(function(b){b.addEventListener('click',function(){renderPacks(b.dataset.tab);});});
-  renderPacks('family');
+  function fmt(n){return n.toLocaleString('ru-RU').replace(/\s/g,'\u00a0');}
+  var P=[['15 фото',6900,9900,false],['30 фото',10400,14900,true],['60 фото',17400,24900,false]];
+  document.getElementById('packs').innerHTML=P.map(function(p){var nov=p[1],dec=p[2],hit=p[3];
+    return '<div class="fx-card'+(hit?' fx-card-hit':'')+'">'+(hit?'<div class="fx-over" style="position:absolute;top:-13px;left:24px;background:#BE0201;color:#fff;padding:5px 12px;font-size:11px">хит</div>':'')+
+    '<div class="fx-over" style="font-size:18px;color:#141414">'+p[0]+'</div>'+
+    '<div style="margin-top:18px;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#7A6A6C">в ноябре</div>'+
+    '<div style="font-family:\'TTNormsBlack\',\'Montserrat\',sans-serif;font-size:44px;line-height:1.1;color:#BE0201;white-space:nowrap">'+fmt(nov)+' ₽</div>'+
+    '<div style="margin-top:6px;font-size:15px;color:#3A3030">в декабре <b style="white-space:nowrap">'+fmt(dec)+' ₽</b></div>'+
+    '<div style="margin-top:18px;border-top:1px solid #E2D7C8;padding-top:14px;display:flex;flex-direction:column;gap:8px;font-size:14px"><div style="display:flex;justify-content:space-between;gap:10px"><span>Цена для клиента</span><b style="white-space:nowrap">~'+fmt(Math.round(nov*1.5/100)*100)+' ₽</b></div><div style="display:flex;justify-content:space-between;gap:10px;color:#BE0201"><span>Вы заработаете</span><b style="white-space:nowrap">~'+fmt(Math.round(nov*0.5/100)*100)+' ₽</b></div></div>'+
+    '<a class="fx-btn fx-btn-red js-book" href="https://t.me/davalovslides?direct" target="_blank" rel="noopener" style="margin-top:24px;width:100%">Забронировать дату</a></div>';}).join('');
 
   // ---------- дней до Нового года ----------
   function days(){var d=Math.max(0,Math.ceil((new Date('2027-01-01T00:00:00+03:00').getTime()-Date.now())/86400000));
