@@ -74,7 +74,7 @@ video::-webkit-media-controls{display:none!important}
   .fx-pearl{width:150px!important}
   .fx-ghost{display:none}
   .fx-hero{height:auto!important;aspect-ratio:3/4}
-  .fx-hero video.fx-bg{object-position:38% 15%!important}
+  .fx-hero .fx-bg{object-position:50% 15%!important}
   .fx-steps li{padding:20px 18px!important}
   .fx-inc-n{font-size:34px!important;min-width:40px!important}
   .fx-inc-d{font-size:17px!important}
@@ -297,7 +297,7 @@ video::-webkit-media-controls{display:none!important}
   function play(v){v.muted=true;var p=v.play&&v.play();if(p&&p.catch)p.catch(function(e){if(e&&e.name==='NotAllowedError')blocked=true;});}
   var heroEl=hv, imgMode=false;
   function tick(t){
-    if(lastT!=null && t<lastT-1){loopN++;flip=!imgMode&&loopN%2===1;heroEl.style.transform=flip?'scaleX(-1)':'none';clear();lastT=t;return;}
+    if(lastT!=null && t<lastT-1){loopN++;flip=!imgMode&&innerWidth>700&&loopN%2===1;heroEl.style.transform=flip?'scaleX(-1)':'none';clear();lastT=t;return;}
     lastT=t;
     if(t>=11.2 && shown && !fading){fading=true;[].forEach.call(box.children,function(c){c.style.opacity=0;});return;}
     if(shown<AUTO.length && t>=AUTO[shown][0] && t<11.2){
