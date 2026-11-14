@@ -362,16 +362,19 @@ video::-webkit-media-controls{display:none!important}
   }
   function goImgMode(){
     if(imgMode)return; imgMode=true;
-    var hi=toImg(hv); hv.removeAttribute('src'); try{hv.load();}catch(e){}
     box.innerHTML='';shown=0;fading=false;loopN=0;lastT=null;flip=false;
     var D=12.04, t0=null;
     function startClock(){ if(t0==null){t0=performance.now(); setInterval(function(){tick(((performance.now()-t0)/1000)%D);},200);} }
-    if(hi){heroEl=hi;hi.style.position='absolute';hi.style.inset='0';hi.style.width='100%';hi.style.height='100%';hi.style.transform='none';
-      if(hi.complete)startClock(); else {hi.addEventListener('load',startClock); setTimeout(startClock,4000);} }
-    [].forEach.call(document.querySelectorAll('video'),toImg);
+    // грузим картинку-видео заранее и меняем только когда она готова: пока грузится, виден первый кадр (без пустого экрана)
+    var hi=document.createElement('img'); hi.alt=''; hi.className='fx-bg fx-vimg'; hi.setAttribute('style',hv.getAttribute('style')||'');
+    hi.style.transform='none';
+    hi.addEventListener('load',function(){ hv.pause&&hv.pause(); hv.replaceWith(hi); heroEl=hi; startClock(); });
+    hi.src=hv.getAttribute('src');
+    [].forEach.call(document.querySelectorAll('video'),function(v){ if(v!==hv) toImg(v); });
   }
   if(isSafari||/[?&]imgtest/.test(location.search)){
-    setTimeout(function(){ if(/[?&]imgtest/.test(location.search)||(blocked&&hv.paused)) goImgMode(); },2500);
+    // только если видео действительно стоит на месте (не началось за 3,5 секунды)
+    setTimeout(function(){ if(/[?&]imgtest/.test(location.search)||(hv.currentTime<0.05&&hv.paused)) goImgMode(); },3500);
   }
 
   // ---------- что входит / шаги ----------
