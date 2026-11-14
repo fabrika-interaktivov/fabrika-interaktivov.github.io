@@ -27,18 +27,18 @@ a{color:#F6E7B8}a:hover{color:#ffffff}
 .fx-ghost{position:absolute;z-index:1;left:-2%;font-family:'TTNormsBlack','Montserrat',sans-serif;font-weight:400;text-transform:uppercase;line-height:.8;white-space:nowrap;font-size:clamp(90px,15vw,240px);pointer-events:none;user-select:none}
 .fx-pearl{position:absolute;z-index:6;pointer-events:none;filter:drop-shadow(0 10px 14px rgba(0,0,0,.45))}
 .fx-pol{position:relative;background:#FBF8F2;padding:10px 10px 34px;box-shadow:0 22px 44px rgba(0,0,0,.5);box-sizing:border-box}
-.fx-pol video,.fx-pol img.fx-ph{display:block;width:100%;height:100%;object-fit:cover;background:#2a1a1b}
+.fx-pol video,.fx-pol img.fx-ph{display:block;width:100%;max-width:100%;height:100%;object-fit:cover;background:#2a1a1b}
 .fx-clip{position:absolute;z-index:3;left:50%;top:-46px;width:64px;transform:translateX(-50%);pointer-events:none}
 .fx-tape{position:absolute;z-index:3;width:84px;pointer-events:none}
 .fx-pin{position:absolute;z-index:3;width:54px;top:-26px;right:18px;pointer-events:none}
 .fx-btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:2px;font-family:'TTNormsBlack','Montserrat',sans-serif;font-weight:400;font-size:14px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;box-sizing:border-box;border:1.5px solid transparent;cursor:pointer;text-align:center}
 .fx-btn-red{background:#BE0201;color:#fff}.fx-btn-red:hover{background:#9A0101;color:#fff}
 .fx-btn-dark{border-color:#141414;color:#141414}.fx-btn-dark:hover{background:#141414;color:#FFFFFF}
-.fx-scatter{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(40px,8vw,140px);row-gap:clamp(40px,5vw,72px);margin-top:56px}
-.fx-scatter>article{width:100%;max-width:420px;display:flex;flex-direction:column;gap:18px}
-.fx-scatter>article:nth-child(odd){justify-self:start;margin-left:4%}
-.fx-scatter>article:nth-child(even){justify-self:end;margin-right:4%;margin-top:clamp(120px,15vw,240px)}
-.fx-scatter>article:nth-child(3){margin-left:14%}
+.fx-scatter{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:clamp(40px,8vw,140px);row-gap:clamp(40px,5vw,72px);margin-top:56px}
+.fx-scatter>article{width:100%;max-width:420px;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;gap:18px}
+.fx-scatter>article:nth-child(odd){justify-self:start;margin-left:0}
+.fx-scatter>article:nth-child(even){justify-self:end;margin-right:0;margin-top:clamp(120px,15vw,240px)}
+.fx-scatter>article:nth-child(3){margin-left:8%;width:92%}
 .fx-scatter h3{margin:8px 0 0;font-size:18px;color:#FFFFFF}
 .fx-scatter p{margin:0;color:#D9CCAA;font-size:clamp(17px,1.5vw,20px)}
 .fx-woven{height:46px;background:url(m/7f988bec75dbb6e2e2f1d4bf0ee411e3.jpg) center/auto 140% repeat-x;box-shadow:inset 0 6px 10px rgba(0,0,0,.35),inset 0 -6px 10px rgba(0,0,0,.35)}
@@ -58,11 +58,14 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
 .fx-plus3>div{background:#F6E7B8;padding:28px 26px;text-align:left;display:flex;flex-direction:column;gap:12px;box-shadow:0 18px 36px rgba(0,0,0,.25)}
 .fx-plus3 b{font-family:'TTNormsBlack','Montserrat',sans-serif;font-weight:400;font-size:clamp(24px,2.2vw,34px);line-height:1;text-transform:uppercase;white-space:nowrap;color:#BE0201}
 .fx-plus3 span{color:#141414;font-size:clamp(17px,1.3vw,19px)}
+video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+video::-webkit-media-controls{display:none!important}
 .fx-cookie{position:fixed;z-index:50;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;background:#141414;color:#F6E7B8;border:1px solid #3a2a2c;padding:16px 18px;font:14px/1.5 'Montserrat',sans-serif;display:none;gap:14px;align-items:center;box-shadow:0 12px 30px rgba(0,0,0,.4)}
 .fx-cookie button{flex:none;background:#BE0201;color:#fff;border:0;padding:10px 18px;font:600 14px 'Montserrat',sans-serif;cursor:pointer}
 @media (max-width:700px){.fx-cookie{font-size:12px;padding:10px 12px;left:10px;right:10px;bottom:10px}.fx-cookie button{padding:8px 12px;font-size:13px}}
 @media (max-width:900px){.fx-pearl-2{display:none}}
 @media (max-width:700px){
+  .fx-scatter{grid-template-columns:minmax(0,1fr)}
   .fx-hide-m{display:none!important}
   .fx-scatter{grid-template-columns:1fr}
   .fx-scatter>article,.fx-scatter>article:nth-child(odd),.fx-scatter>article:nth-child(even),.fx-scatter>article:nth-child(3){justify-self:center;margin:0}
@@ -82,8 +85,8 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
 <div style="width:100%;background:#141414;color:#F6E7B8;font-family:'Montserrat',sans-serif;overflow-x:hidden">
 
 <!-- 1. ПЕРВЫЙ ЭКРАН -->
-<section class="fx-hero" id="hero" style="position:relative;width:100%;height:max(560px,56.9vw);overflow:hidden;background:#5C0A10">
-  <video class="fx-bg" id="heroVid" src="m/39ccc3bbc26e54ce0f66522505905230.mp4" poster="m/0e2fa5e314f7005ce83ce3b801b66e22.jpg" muted loop playsinline autoplay preload="auto" aria-label="Света смотрит на появляющиеся фотографии и подмигивает" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%"></video>
+<section class="fx-hero" id="hero" style="position:relative;width:100%;height:max(560px,56.9vw);overflow:hidden;background:#4E1016">
+  <video class="fx-bg" id="heroVid" src="m/39ccc3bbc26e54ce0f66522505905230.mp4" poster="m/0e2fa5e314f7005ce83ce3b801b66e22.jpg" muted loop playsinline autoplay preload="auto" aria-label="Света смотрит на появляющиеся фотографии и подмигивает" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 15%;filter:saturate(.72) contrast(.96) brightness(.97)"></video>
   <div id="heroCards"></div>
   <div style="position:absolute;z-index:3;left:0;right:0;bottom:-2px;padding:120px 0 2px;background:linear-gradient(rgba(255,255,255,0) 0%,rgba(255,255,255,0) 72%,#FFFFFF 100%);display:flex;justify-content:center;align-items:flex-end;pointer-events:none;container-type:inline-size">
     <h1 aria-label="Фабрика именных интерактивов" style="margin:0 0 0 -0.03em;width:100%;font-family:'FemmeFatale','Marck Script',serif;font-weight:400;font-size:calc(100cqw / 4.83);line-height:.64;color:#FFFFFF;text-align:left;white-space:nowrap">ФАБРИКА</h1>
@@ -103,7 +106,7 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
 </section>
 
 <!-- 2. КТО МЫ -->
-<section class="fx-sec" style="background:#BE0201">
+<section class="fx-sec" style="background:#6B1018">
   <div style="position:relative;height:clamp(96px,11vw,170px);background:#F6E7B8 url(m/a8058173de1e85b8fc4b4fe8848e53ed.jpg) center center/auto 100% repeat-x"></div>
   <div class="fx-wrap" style="display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;padding-top:clamp(44px,5.5vw,76px);padding-bottom:clamp(56px,7vw,96px)">
     <h2 style="margin:0;color:#FFFFFF;font-size:clamp(30px,4.9vw,70px);line-height:1.05;text-align:center;font-family:Montserrat,sans-serif;font-weight:400">Привет, я Света — СММщица Паши Давалова</h2>
@@ -173,7 +176,7 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
 <div class="fx-woven" aria-hidden="true"></div>
 
 <!-- 4. ЧТО ВХОДИТ -->
-<section class="fx-sec" style="background:#BE0201;padding:clamp(80px,10vw,130px) 0">
+<section class="fx-sec" style="background:#6B1018;padding:clamp(80px,10vw,130px) 0">
   <div class="fx-ghost" aria-hidden="true" style="bottom:-0.1em;color:rgba(0,0,0,.16)">ВСЁ ВКЛЮЧЕНО</div>
   <div class="fx-wrap">
     <h2 class="fx-h2" style="max-width:800px">Всё включено. Одна услуга — одна фиксированная цена</h2>
@@ -189,7 +192,7 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
 </section>
 
 <!-- 6. ЗАРАБОТОК -->
-<section class="fx-sec" style="background:#BE0201;padding:clamp(80px,10vw,120px) 0">
+<section class="fx-sec" style="background:#5A0D14;padding:clamp(80px,10vw,120px) 0">
   <div class="fx-ghost" aria-hidden="true" style="top:20px;color:rgba(0,0,0,.16)">+5 200 ₽</div>
   <div class="fx-wrap">
     <h2 class="fx-h2" style="max-width:760px">Интерактив зарабатывает вам сверх гонорара</h2>
@@ -254,7 +257,7 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
 </section>
 
 <!-- 10. ФИНАЛ -->
-<section class="fx-sec" style="background:#BE0201;padding:clamp(90px,10vw,130px) 0 60px;text-align:center">
+<section class="fx-sec" style="background:#6B1018;padding:clamp(90px,10vw,130px) 0 60px;text-align:center">
   <img class="fx-pearl" src="m/e8634f66cc15f0b3243f85c07c458ca6.png" alt="" style="width:320px;left:-40px;top:-60px;transform:rotate(8deg)">
   <div class="fx-ghost" aria-hidden="true" style="bottom:60px;color:rgba(0,0,0,.16)">ФАБРИКА</div>
   <div class="fx-wrap" style="display:flex;flex-direction:column;align-items:center;gap:26px">
@@ -321,10 +324,26 @@ details.fx-faq p{margin:12px 0 0;color:#D9CCAA}
   var lazy=document.querySelectorAll('video.js-lazy');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;
-      if(e.isIntersecting){if(!v.src){v.src=v.dataset.src;v.preload='auto';}play(v);}else if(v.src){v.pause();}
+      if(e.isIntersecting){if(!v.src){v.autoplay=true;v.src=v.dataset.src;v.preload='auto';v.load();}play(v);}else if(v.src){v.pause();}
     });},{rootMargin:'300px'});
     lazy.forEach(function(v){io.observe(v);});
   } else lazy.forEach(function(v){v.src=v.dataset.src;play(v);});
+
+  // ---------- страховка автозапуска: телефоны в режиме энергосбережения и встроенные браузеры (Instagram, Telegram) ----------
+  function onScreen(v){var r=v.getBoundingClientRect();return r.bottom>-200&&r.top<innerHeight+200&&r.width>0;}
+  function kick(){
+    if(hv.paused)play(hv);
+    [].forEach.call(document.querySelectorAll('video'),function(v){
+      if(v===hv)return;
+      if(v.classList.contains('js-lazy')&&!v.src&&onScreen(v)){v.autoplay=true;v.src=v.dataset.src;v.preload='auto';v.load();}
+      if(v.src&&v.paused&&onScreen(v))play(v);
+    });
+  }
+  ['touchstart','touchend','click','scroll','keydown'].forEach(function(e){window.addEventListener(e,kick,{passive:true});});
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)kick();});
+  window.addEventListener('pageshow',kick);
+  hv.addEventListener('canplay',function(){if(hv.paused)play(hv);});
+  setInterval(kick,1500);
 
   // ---------- что входит / шаги ----------
   var INC=[
